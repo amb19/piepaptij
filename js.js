@@ -20,14 +20,35 @@ function eleccion(jugada){
 }
 
 let jugador = 0
-let min = 1
-let max = 3
-let pc = aleatorio(1,3)
-jugador = prompt("Elige: 1 para piedrad, 2 para papel, 3 para tijera")
-//jugador
+let pc = 0
+let triunfos = 0
+let perdidas = 0
 
-alert("Tu eliges: " + eleccion(jugador))
-alert("Pc elige: " + eleccion(pc))
+while ( triunfos < 3 && perdidas < 3) {
+    pc = aleatorio(1,3)
+    jugador = prompt("Elige: 1 para piedrad, 2 para papel, 3 para tijera")
+    //jugador
+    alert("Tu eliges: " + eleccion(jugador))
+    alert("Pc elige: " + eleccion(pc))
+    // combate
+
+    if (pc == jugador){
+        alert("Empate")
+    } else if ( jugador == 1 && pc == 3 ){
+        alert("Ganaste")
+        triunfos = triunfos + 1
+    } else if (jugador == 2 && pc == 1){
+        alert("Ganaste")
+        triunfos = triunfos + 1
+    } else if (jugador == 3 && pc == 2){
+        alert("Ganaste")
+        triunfos = triunfos + 1
+    } else {
+        alert("Perdiste")
+        perdidas = perdidas + 1 
+    }
+}
+alert(" Ganaste " + triunfos + " veces. Perdiste " + perdidas + " veces." )
 
 // if(jugador == 1){
 //     alert("Elegiste piedra")
@@ -50,17 +71,3 @@ alert("Pc elige: " + eleccion(pc))
 // }else {
 //     alert("Elege piedra,papel o tijera")
 // }
-
-// combate
-
-if (pc == jugador){
-    alert("Empate")
-} else if ( jugador == 1 && pc == 3 ){
-    alert("Ganaste")
-} else if (jugador == 2 && pc == 1){
-    alert("Ganaste")
-} else if (jugador == 3 && pc == 2){
-    alert("Ganaste")
-} else {
-    alert("Perdiste")
-}
